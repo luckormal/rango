@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+
+<head>
+    <title>Luc test chapter 4 excersise temple</title>
+</head>
+
+<body>
+    <h1>This is my site!</h1>
+    <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi labore deleniti asperiores, voluptatibus autem rem dolorum sapiente et, impedit eum magnam modi culpa sed magni architecto quam nam nemo. Ut?
+    </div>
+    <div>
+        {% regroup cities by country as country_list %}
+        <ul>
+            {% for country in country_list %}
+            <li>
+                {{ country.grouper }}
+                <ul>
+                    {% for item in country.list %}
+                    <li>{{ item.name }}: {{item.population }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <img src="{% static "images/rango.jpg" %}" alt="Rango" />
+        <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
+    </div>
+</body>
+
+</html>
