@@ -16,8 +16,10 @@ def index(request):
     #<a href='/rango/about/'>About</a>")
 
 def about(request):
-    return HttpResponse("Rango says here is the about page. <br> \
-    <a href='/rango/'>Index</a>")
+    context_numbers = {'numbers' : range(1,11)}
+    return render(request, 'rango/about.html', context=context_numbers)
+    #return HttpResponse("Rango says here is the about page. <br> \
+    #<a href='/rango/'>Index</a>")
 
 def luc(request):
     context_cities = {'cities': [

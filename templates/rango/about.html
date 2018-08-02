@@ -1,0 +1,23 @@
+<!DOCTYPE html >
+
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>About site</title>
+    </head>
+
+    <body>
+        <table style="width:100%">
+        {% for row in numbers %}
+        <tr>
+            {% for cell in numbers %}
+                <td>{% widthratio row 1 cell %}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </table>
+        <div><a href="/rango/">Index</a></div>
+        <img src="{{ MEDIA_URL}}cat.jpg" width="30%" alt="Cat">
+    </body>
+</html>
