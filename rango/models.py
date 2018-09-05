@@ -7,7 +7,7 @@ class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
     views = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     likes = models.IntegerField(default=0)
-    slug = models.SlugField(default="test")
+    slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
         if self.views < 0:

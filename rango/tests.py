@@ -274,6 +274,13 @@ class CategoryMethodTests(TestCase):
 
 from django.core.urlresolvers import reverse
 
+def add_cat(name, views, likes):
+    c = Category.objects.get_or_create(name=name)[0]
+    c.views = views
+    c.likes = likes
+    c.save()
+    return c
+
 class IndexViewTests(TestCase):
 
     def test_index_view_with_no_categories(self):
@@ -289,12 +296,6 @@ class IndexViewTests(TestCase):
         """
         Check to make sure that the index has categories displayed
         """
-        def add_cat(name, views, likes):
-            c = Category.objects.get_or_create(name=name)[0]
-            c.views = views
-            c.likes = likes
-            c.save()
-            return c
 
         add_cat('test',1,1)
         add_cat('temp',1,1)
