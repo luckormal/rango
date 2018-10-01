@@ -1,25 +1,21 @@
-<!DOCTYPE html >
-
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
 
-<html>
-    <head>
-        <title>About site</title>
-    </head>
+{% block title_block %}
+    About site
+{% endblock %}
 
-    <body>
-        <h1>This tutorial has been put together by me.</h1>
+{% block body_block %}
+    <h1>This tutorial has been put together by me.</h1>
 
-        <div><a href="/rango/">Index</a></div>
-        <img src="{{ MEDIA_URL}}cat.jpg" width="30%" alt="Cat" />
-        <table style="width:100%">
-        {% for row in numbers %}
-        <tr>
-            {% for cell in numbers %}
-                <td>{% widthratio row 1 cell %}</td>
-            {% endfor %}
-        </tr>
+    <img src="{{ MEDIA_URL}}cat.jpg" width="30%" alt="Cat" />
+    <table style="width:100%">
+    {% for row in numbers %}
+    <tr>
+        {% for cell in numbers %}
+            <td>{% widthratio row 1 cell %}</td>
         {% endfor %}
-        </table>
-    </body>
-</html>
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
